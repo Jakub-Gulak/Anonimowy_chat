@@ -1,6 +1,6 @@
 <?php
 
-$host = "localhost";
+$host = "mysql";
 $dbname = "chat_db";
 $user = "root";
 $password = "root123";
@@ -11,9 +11,7 @@ try {
         $user,
         $password
     );
-
-    echo "Polaczono z baza";
 }
 catch(PDOException $e) {
-    echo "Blad: " . $e->getMessage();
+    die("Blad polaczenia: " . $e->getMessage());
 }
