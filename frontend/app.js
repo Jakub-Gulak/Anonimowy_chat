@@ -32,7 +32,12 @@ function loadMessages() {
             let html = "";
 
             data.forEach(message => {
-                html += `<p>${message.content}</p>`;
+                html += `
+                    <p>
+                        ${message.content}
+                        <small>(${message.created_at})</small>
+                    </p>
+                `;
             });
 
             document.getElementById("messages").innerHTML = html;
@@ -42,3 +47,5 @@ function loadMessages() {
 }
 
 loadMessages();
+
+setInterval(loadMessages, 3000);
