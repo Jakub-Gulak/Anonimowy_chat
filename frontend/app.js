@@ -12,9 +12,33 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
+
         console.log(data);
 
         document.getElementById("messageInput").value = "";
+
+        loadMessages();
+
     });
 
 }
+
+function loadMessages() {
+
+    fetch("http://localhost:8080/api/messages.php")
+        .then(response => response.json())
+        .then(data => {
+
+            let html = "";
+
+            data.forEach(message => {
+                html += `<p>${message.content}</p>`;
+            });
+
+            document.getElementById("messages").innerHTML = html;
+
+        });
+
+}
+
+loadMessages();
