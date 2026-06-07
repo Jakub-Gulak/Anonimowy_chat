@@ -2,8 +2,23 @@
 
 require_once "../config/database.php";
 
-// Pobrana wiadomosc z formularza
 $content = $_POST["content"] ?? "";
+
+$badWords = [
+    "kurwa",
+    "idiota",
+    "ciota",
+    "chuj",
+    "cwel",
+    "debil",
+    "frajer"
+];
+
+$content = str_ireplace(
+    $badWords,
+    "*****",
+    $content
+);
 
 $sql = "INSERT INTO messages (content, owner_token) VALUES (?, ?)";
 
