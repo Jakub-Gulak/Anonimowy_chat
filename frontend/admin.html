@@ -7,27 +7,31 @@
 </head>
 <body>
 
-    <h1>Panel administratora</h1>
+    <div class="login-container">
 
-    <input
-        type="text"
-        id="username"
-        placeholder="Login">
+        <h1>Panel administratora</h1>
 
-    <br><br>
+        <input
+            type="text"
+            id="username"
+            placeholder="Login">
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Hasło">
+        <br><br>
 
-    <br><br>
+        <input
+            type="password"
+            id="password"
+            placeholder="Hasło">
 
-    <button onclick="login()">
-        Zaloguj
-    </button>
+        <br><br>
 
-    <p id="result"></p>
+        <button onclick="login()">
+            Zaloguj
+        </button>
+
+        <p id="result"></p>
+
+    </div>
 
     <script>
 
@@ -53,8 +57,13 @@
 
                 if (data.success) {
 
-                    document.getElementById("result").innerHTML =
-                        "Zalogowano";
+                    localStorage.setItem(
+                        "isAdmin",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "index.html";
 
                 }
                 else {

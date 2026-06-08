@@ -47,6 +47,10 @@ function deleteMessage(id) {
             "&ownerToken=" +
             encodeURIComponent(
                 localStorage.getItem("ownerToken")
+            ) +
+            "&isAdmin=" +
+            encodeURIComponent(
+                localStorage.getItem("isAdmin")
             )
     })
     .then(response => response.json())
@@ -78,6 +82,10 @@ function editMessage(id, oldContent) {
             "&ownerToken=" +
             encodeURIComponent(
                 localStorage.getItem("ownerToken")
+            ) +
+            "&isAdmin=" +
+            encodeURIComponent(
+                localStorage.getItem("isAdmin")
             )
     })
     .then(response => response.json())
@@ -89,7 +97,34 @@ function editMessage(id, oldContent) {
 
 }
 
+function logout() {
+
+    localStorage.removeItem("isAdmin");
+
+    location.reload();
+
+}
+
 function loadMessages() {
+
+    if (localStorage.getItem("isAdmin") === "true") {
+
+        if (document.getElementById("adminInfo")) {
+
+            document.getElementById("adminInfo").innerHTML =
+                "Zalogowano jako administrator " +
+                "<button onclick='logout()'>Wyloguj</button>";
+
+        }
+
+        if (document.getElementById("adminButton")) {
+
+            document.getElementById("adminButton").style.display =
+                "none";
+
+        }
+
+    }
 
     fetch("http://localhost:8080/api/messages.php")
         .then(response => response.json())
@@ -99,12 +134,19 @@ function loadMessages() {
 
             data.forEach(message => {
 
+                const date = new Date(message.created_at);
+
+                date.setHours(date.getHours() + 2);
+
                 const time =
-                    message.created_at.split(" ")[1];
+                    date.toLocaleTimeString();
 
                 const isOwner =
                     message.owner_token ===
                     localStorage.getItem("ownerToken");
+
+                const isAdmin =
+                    localStorage.getItem("isAdmin") === "true";
 
                 html += `
                     <p>
@@ -113,13 +155,13 @@ function loadMessages() {
 
                         <button
                             onclick="editMessage(${message.id}, '${message.content}')"
-                            ${!isOwner ? "disabled" : ""}>
+                            ${(!isOwner && !isAdmin) ? "disabled" : ""}>
                             Edytuj
                         </button>
 
                         <button
                             onclick="deleteMessage(${message.id})"
-                            ${!isOwner ? "disabled" : ""}>
+                            ${(!isOwner && !isAdmin) ? "disabled" : ""}>
                             Usuń
                         </button>
                     </p>

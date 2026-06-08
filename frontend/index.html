@@ -7,19 +7,33 @@
 </head>
 <body>
 
-    <h1>Anonimowy Chat</h1>
+    <div id="adminInfo"></div>
 
-    <input
-        type="text"
-        id="messageInput"
-        placeholder="Wpisz wiadomość"
-        maxlength="200">
+    <div class="chat-container">
 
-    <button onclick="sendMessage()">
-        Wyślij
-    </button>
+        <h1>Anonimowy Chat</h1>
 
-    <div id="messages"></div>
+        <button
+            id="adminButton"
+            onclick="window.location.href='admin.html'">
+            Strefa administratora
+        </button>
+
+        <br><br>
+
+        <input
+            type="text"
+            id="messageInput"
+            placeholder="Wpisz wiadomość"
+            maxlength="200">
+
+        <button onclick="sendMessage()">
+            Wyślij
+        </button>
+
+        <div id="messages"></div>
+
+    </div>
 
     <script src="app.js"></script>
 
