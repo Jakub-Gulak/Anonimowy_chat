@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Pobranie repozytorium
+        uses: actions/checkout@v4
+
+      - name: Budowanie obrazu Docker
+        run: docker build -t anonimowy-chat .
