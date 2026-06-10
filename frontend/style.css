@@ -6,9 +6,15 @@ body {
     padding: 0;
 }
 
-h1 {
+.chat-container {
+    width: 100%;
     text-align: center;
     margin-top: 100px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 #adminInfo {
@@ -23,8 +29,26 @@ h1 {
     right: 20px;
 }
 
-a,
-button {
+.input-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 500px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #2d2d2d;
+    color: white;
+    box-sizing: border-box;
+}
+
+button,
+a {
     background-color: #3b82f6;
     color: white;
     border: none;
@@ -40,22 +64,9 @@ a:hover {
     background-color: #2563eb;
 }
 
-input {
-    width: 500px;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #444;
-    background-color: #2d2d2d;
-    color: white;
-}
-
-.center {
-    text-align: center;
-}
-
 #messages {
     width: 700px;
-    margin: 30px auto;
+    margin: 30px auto 0 auto;
 }
 
 #messages p {
@@ -80,5 +91,8 @@ small {
 
 .login-container input {
     width: 100%;
-    box-sizing: border-box;
+}
+
+.center {
+    text-align: center;
 }
