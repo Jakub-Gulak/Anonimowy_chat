@@ -12,7 +12,7 @@ function sendMessage() {
     const message =
         document.getElementById("messageInput").value;
 
-    fetch("http://localhost:8080/api/add_message.php", {
+    fetch("/api/add_message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -37,7 +37,7 @@ function sendMessage() {
 
 function deleteMessage(id) {
 
-    fetch("http://localhost:8080/api/delete_message.php", {
+    fetch("/api/delete_message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -71,7 +71,7 @@ function editMessage(id, oldContent) {
         return;
     }
 
-    fetch("http://localhost:8080/api/update_message.php", {
+    fetch("/api/update_message.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -126,7 +126,7 @@ function loadMessages() {
 
     }
 
-    fetch("http://localhost:8080/api/messages.php")
+    fetch("/api/messages.php")
         .then(response => response.json())
         .then(data => {
 
