@@ -1,8 +1,13 @@
 if (!localStorage.getItem("ownerToken")) {
 
+    const token =
+        Date.now().toString() +
+        "-" +
+        Math.random().toString(36).substring(2);
+
     localStorage.setItem(
         "ownerToken",
-        crypto.randomUUID()
+        token
     );
 
 }
