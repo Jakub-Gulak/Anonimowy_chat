@@ -151,3 +151,10 @@ cd Anonimowy-chat
 w konsoli: docker compose up -d --build
 
 otworzenie w przeglądarce adresu: http://localhost:8080/frontend/index.html
+
+---
+
+## Dane logowania do panelu administratora
+
+login: admin
+password: kuba123
