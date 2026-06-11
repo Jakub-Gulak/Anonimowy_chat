@@ -6,6 +6,8 @@ Aplikacja działa bez rejestracji i logowania użytkowników. Każdy użytkownik
 
 Dodatkowo zaimplementowano panel administratora umożliwiający zarządzanie wiadomościami.
 
+Projekt łączy dwa wymagania w jednym rozwiązaniu. Anonimowy chat został wdrożony w chmurze Microsoft Azure, a do uruchamiania aplikacji wykorzystano technologię Docker. Dodatkowo zaimplementowano potok CI/CD z użyciem GitHub Actions, dzięki czemu zmiany w repozytorium mogą być automatycznie wdrażane na serwerze.
+
 ---
 
 ## Zastosowane technologie
