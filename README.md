@@ -143,7 +143,11 @@ Dzięki publicznemu adresowi IP aplikacja jest dostępna z poziomu dowolnego urz
 ---
 
 ## Uruchomienie projektu lokalnie
+
 git clone ...
+
 cd Anonimowy-chat
+
 w konsoli: docker compose up -d --build
+
 otworzenie w przeglądarce adresu: http://localhost:8080/frontend/index.html
