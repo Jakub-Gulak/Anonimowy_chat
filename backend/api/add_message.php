@@ -17,13 +17,8 @@ if ($content === "" || $ownerToken === "") {
 }
 
 $badWords = [
-    "kurwa",
-    "idiota",
-    "ciota",
-    "chuj",
-    "cwel",
-    "debil",
-    "frajer"
+    "brzydkieslowo",
+    "zleslowo",
 ];
 
 $content = str_ireplace(
