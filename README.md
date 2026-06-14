@@ -6,6 +6,8 @@ Aplikacja działa bez rejestracji i logowania użytkowników. Każdy użytkownik
 
 Dodatkowo zaimplementowano panel administratora umożliwiający zarządzanie wiadomościami.
 
+Projekt łączy dwa wymagania w jednym rozwiązaniu. Anonimowy chat został wdrożony w chmurze Microsoft Azure, a do uruchamiania aplikacji wykorzystano technologię Docker. Dodatkowo zaimplementowano potok CI/CD z użyciem GitHub Actions, dzięki czemu zmiany w repozytorium mogą być automatycznie wdrażane na serwerze.
+
 ---
 
 ## Zastosowane technologie
@@ -141,3 +143,20 @@ Na serwerze uruchomiono środowisko Docker Compose zawierające aplikację PHP o
 Dzięki publicznemu adresowi IP aplikacja jest dostępna z poziomu dowolnego urządzenia posiadającego dostęp do Internetu.
 
 ---
+
+## Uruchomienie projektu lokalnie
+
+git clone ...
+
+cd Anonimowy-chat
+
+w konsoli: docker compose up -d --build
+
+otworzenie w przeglądarce adresu: http://localhost:8080/frontend/index.html
+
+---
+
+## Dane logowania do panelu administratora
+
+login: admin
+password: kuba123

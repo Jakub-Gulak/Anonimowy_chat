@@ -2,17 +2,23 @@
 
 require_once "../config/database.php";
 
-$content = $_POST["content"] ?? "";
-$ownerToken = $_POST["ownerToken"] ?? "";
+$content = trim($_POST["content"] ?? "");
+$ownerToken = trim($_POST["ownerToken"] ?? "");
+
+if ($content === "" || $ownerToken === "") {
+
+    echo json_encode([
+        "success" => false,
+        "message" => "Brak wymaganych danych"
+    ]);
+
+    exit;
+
+}
 
 $badWords = [
-    "kurwa",
-    "idiota",
-    "ciota",
-    "chuj",
-    "cwel",
-    "debil",
-    "frajer"
+    "brzydkieslowo",
+    "zleslowo",
 ];
 
 $content = str_ireplace(
@@ -21,8 +27,13 @@ $content = str_ireplace(
     $content
 );
 
-$sql = "INSERT INTO messages (content, owner_token)
-        VALUES (?, ?)";
+$sql = "
+    INSERT INTO messages (
+        content,
+        owner_token
+    )
+    VALUES (?, ?)
+";
 
 $stmt = $pdo->prepare($sql);
 
